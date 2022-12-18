@@ -9,7 +9,7 @@
     --text-dark: #1a3260;
     --text-dark2: #1a3760d4;
     --text-red: #ff4d6d;
-    --box-shadow: 0px 0px 50px 0px rgb(0 0 0 /10%);
+    --box-shadow: 0px 0px 50px 0px rgb(0 0 0 10%);
     --bg-blue: rgb(249, 243, 255);
     --bg-red: rgb(254, 247, 252);
     --bg-yellow: rgb(255, 255, 246);
@@ -40,7 +40,7 @@ a{
 ul{
     list-style-type: none;
 }
-/*------------Variables------------*/
+/*------------/Variables------------*/
 
 
 /*------------Global Classes------------*/
@@ -129,6 +129,9 @@ text-sm{
 .flex-initial{
     flex: 01atuo;
 }
+.flex-grow{
+    flex-grow: 1;
+}
 .justify-center{
     justify-content: center;
 }
@@ -179,7 +182,7 @@ text-sm{
     cursor: pointer;
 }
 .btn-primary{
-    padding: 8rem 2rem;
+    padding: .8rem 2rem;
     border-radius: 50px;
     font-family: var(--font-popins);
     font-weight: bold;
@@ -212,4 +215,96 @@ text-sm{
 .w-50{
     width: 50%;
 }
-/*------------Global Classes------------*/
+/*------------/Global Classes------------*/
+/*------------Navbar------------*/
+#nav{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 1.5rem;
+    background: var(--text-light);
+    flex-direction: column;
+}
+#nav .collapse{
+    max-height: 0px;
+    overflow-y: hidden;
+    transition: all 0.9s ease;
+}
+
+#nav .collapse ul{
+    flex-direction: column;
+    text-align: center;
+    padding: 0.3rem;
+}
+#nav .collapse ul > li{
+    padding: 0 1.5rem;
+    line-height: 3rem;
+    font-size: 1.1rem;
+}
+#nav .toggle-btn>button{
+    font-size: 2em;
+    position: absolute;
+    right: 0; top: 0;
+    padding: 1rem;
+    color: var(--text-dark2);
+}
+#nav .flex-initial ul button{
+    display: none;
+}
+.active{
+    max-height: 50vh !important;
+}
+/*------------/Navbar------------*/
+/*------------Media Query------------*/
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .container{
+        max-width: 600px;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .container{
+        max-width: 768px;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .container{
+        max-width:1024px;
+    }
+    #nav .toggle-btn > button{
+        display: none;
+    }
+    #nav{
+        flex-direction: row !important;
+    }
+    .collapse{
+        max-height: initial !important;
+    }
+    .collapse ul{
+        flex-direction: row !important;
+    }
+    .active{
+        max-height: 100% !important;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .container{
+        max-width: 1200px;
+    }
+    #nav{
+        background: transparent !important;
+    }
+    #nav .flex-initial ul button{
+        display: inline-block;
+    }
+}
+
+/*------------/Media Query------------*/
